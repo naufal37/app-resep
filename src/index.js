@@ -10,7 +10,7 @@ const searchRecipeEl = document.querySelector('#search-recipe')
 // updateRecipe("f9636639-d91d-4b69-86ed-57937caaf61c",{
 //     title:'Jengkol Semur',
 //     recipeSteps:'Disemur',
-//     ingredients:{ingredient:'Air',completed:'false'}
+//     ingredients:{ingredient:'Air',completed:false}
 // })
 
 renderRecipes()

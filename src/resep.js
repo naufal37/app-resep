@@ -1,8 +1,8 @@
 import {v4 as uuidv4} from 'uuid'
 import moment from "moment";
 
-class Recipes{
-    constructor(title,recipeSteps,ingredients) {
+class Recipes {
+    constructor(title, recipeSteps, ingredients) {
         this.id = uuidv4()
         this.title = title
         this.recipeSteps = recipeSteps
@@ -11,6 +11,7 @@ class Recipes{
         this.updatedAt = moment().valueOf()
     }
 }
+
 let recipes = []
 
 const loadRecipes = () => {
@@ -24,7 +25,7 @@ const loadRecipes = () => {
 loadRecipes()
 const getRecipes = () => recipes
 const createRecipes = () => {
-    const newRecipes = new Recipes('','',[])
+    const newRecipes = new Recipes('', '', [])
     recipes.push(newRecipes)
 
 
@@ -43,12 +44,12 @@ const saveRecipes = () => {
     localStorage.setItem('recipes', JSON.stringify(recipes))
 }
 
-const removeRecipes = (id)=>{
-    const recipeIndex = recipes.findIndex((recipe)=>{
+const removeRecipes = (id) => {
+    const recipeIndex = recipes.findIndex((recipe) => {
         return recipe.id === id
     })
-    if (recipeIndex>-1){
-        recipes.splice(recipeIndex,1)
+    if (recipeIndex > -1) {
+        recipes.splice(recipeIndex, 1)
         saveRecipes()
     }
 }
@@ -80,24 +81,24 @@ const sortRecipes = (sortBy) => {
     } else return recipes
 }
 
-const updateRecipe = (id,updates)=>{
-    const recipe = recipes.find((recipe)=>{
+const updateRecipe = (id, updates) => {
+    const recipe = recipes.find((recipe) => {
         return recipe.id === id
     })
-    if (!recipe){
+    if (!recipe) {
         return
     }
-    if(typeof updates.title==="string"){
+    if (typeof updates.title === "string") {
         recipe.title = updates.title
         recipe.updatedAt = moment().valueOf()
 
     }
-    if (typeof updates.ingredients==="object"){
+    if (typeof updates.ingredients === "object") {
         recipe.ingredients.push(updates.ingredients)
         recipe.updatedAt = moment().valueOf()
 
     }
-    if (typeof updates.recipeSteps==='string'){
+    if (typeof updates.recipeSteps === 'string') {
         recipe.recipeSteps = updates.recipeSteps
         recipe.updatedAt = moment().valueOf()
     }
@@ -105,4 +106,4 @@ const updateRecipe = (id,updates)=>{
     return recipe
 }
 
-export {loadRecipes,getRecipes,createRecipes,removeRecipes,updateRecipe,sortRecipes}
+export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes}

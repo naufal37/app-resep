@@ -1,6 +1,7 @@
 import moment from "moment";
 import {getRecipes, removeRecipes, sortRecipes} from "./resep";
 import {getFilters} from "./filters";
+const recipes = getRecipes()
 
 const generateRecipeDom = (recipe)=>{
     const recipeEl = document.createElement('a')
@@ -51,25 +52,50 @@ const renderRecipes = ()=>{
         recipesEl.appendChild(emptyMessage)
     }
 }
+const generateIngredientDom = (ingredients)=>{
+    const containerEl = document.createElement('div')
+    const ingredientEl = document.createElement('a')
+    const completedEl = document.createElement('input')
+    const removeEl = document.createElement('button')
+
+    removeEl.textContent = 'x'
+    completedEl.setAttribute('type','checkbox')
+
+    completedEl.checked = ingredients.completed
+    ingredientEl.textContent = ingredients.ingredient
+
+    containerEl.appendChild(removeEl)
+    containerEl.appendChild(completedEl)
+    containerEl.appendChild(ingredientEl)
+
+    return containerEl
+}
+const renderIngredient = (id)=>{
+    const ingredientsEl = document.querySelector('#ingredients')
+    ingredientsEl.innerHTML = ''
+    let recipe = recipes.find((recipe)=> recipe.id === id)
+    let ingredient = recipe.ingredients
+    ingredient.forEach((ingredient)=>{
+        ingredientsEl.appendChild(generateIngredientDom(ingredient))
+    })
+}
 
 const initializeEditPage = (id)=>{
     const recipeTitleEl = document.querySelector('#recipe-title')
     const recipeStepsEl = document.querySelector('#recipe-Steps')
     const ingredientsEl = document.querySelector('#ingredients')
-    const addIngredientButtonEl = document.querySelector('#add-ingredient')
-    const addIngredientEl = document.querySelector('#add-ingredient')
-    const recipes = getRecipes()
     let recipe = recipes.find((recipe)=> recipe.id === id)
     if (!recipe){
         return
     }
     recipeTitleEl.value = recipe.title
     recipeStepsEl.value = recipe.recipeSteps
-    let bahan = recipe.ingredients
-    ingredientsEl.textContent = bahan.forEach((b)=>{
-        return b.ingredient
+
+    let ingredient = recipe.ingredients
+    ingredient.forEach((ingredient)=>{
+        ingredientsEl.appendChild(generateIngredientDom(ingredient))
     })
 
 }
 
-export {renderRecipes,initializeEditPage}
+export {renderRecipes,initializeEditPage,generateIngredientDom,renderIngredient}
