@@ -67,7 +67,7 @@ const generateIngredientDom = (ingredients)=>{
 
     removeEl.addEventListener('click',(e)=>{
         e.preventDefault()
-
+        removeIngredient(ingredients)
     })
 
     containerEl.appendChild(removeEl)

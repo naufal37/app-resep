@@ -56,11 +56,11 @@ const removeRecipes = (id) => {
 
 
 const removeIngredient = (ingredientss) => {
-    const ingredientToRemove = recipes.forEach((recipe)=>{
-        const ingredientIndex = recipe.ingredients.findIndex((ing)=> ing.ingredient===ingredientss.ingredient)
-        recipe.ingredients.splice(ingredientIndex,1)
-        console.log(recipe.id)
-        saveRecipes()
+    const ingredientToRemove = recipes.forEach((recipe) => {
+        const ingredientIndex = recipe.ingredients.findIndex((ing) => {
+            return ing.ingredient === ingredientss.ingredient
+        })
+        console.log(ingredientIndex)
     })
 
 }
@@ -118,4 +118,4 @@ const updateRecipe = (id, updates) => {
     return recipe
 }
 
-export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes}
+export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes, removeIngredient}
