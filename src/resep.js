@@ -55,14 +55,12 @@ const removeRecipes = (id) => {
 }
 
 
-const removeIngredient = (ingredientss) => {
-    const ingredientToRemove = recipes.forEach((recipe) => {
-        const ingredientIndex = recipe.ingredients.findIndex((ing) => {
-            return ing.ingredient === ingredientss.ingredient
-        })
-        console.log(ingredientIndex)
+const removeIngredient = (ingredientsToRemove) => {
+    recipes.forEach((recipe) => {
+        const ingredientIndex = recipe.ingredients.findIndex((ing) => ing.ingredient === ingredientsToRemove.ingredient)
+        recipe.ingredients.splice(ingredientIndex, 1)
     })
-
+    saveRecipes()
 }
 
 const sortRecipes = (sortBy) => {
