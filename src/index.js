@@ -13,6 +13,10 @@ const searchRecipeEl = document.querySelector('#search-recipe')
 //     ingredients:{ingredient:'Air',completed:false}
 // })
 
+const co = [{a:'a'},{b:'b'},{c:'c'}]
+co.splice(1,1)
+console.log(co)
+
 renderRecipes()
 
 createNewRecipeEl.addEventListener('click', (e) => {

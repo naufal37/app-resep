@@ -53,6 +53,18 @@ const removeRecipes = (id) => {
         saveRecipes()
     }
 }
+
+
+const removeIngredient = (ingredientss) => {
+    const ingredientToRemove = recipes.forEach((recipe)=>{
+        const ingredientIndex = recipe.ingredients.findIndex((ing)=> ing.ingredient===ingredientss.ingredient)
+        recipe.ingredients.splice(ingredientIndex,1)
+        console.log(recipe.id)
+        saveRecipes()
+    })
+
+}
+
 const sortRecipes = (sortBy) => {
     if (sortBy === 'byEdited') {
         return recipes.sort((a, b) => {

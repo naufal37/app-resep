@@ -1,5 +1,5 @@
 import moment from "moment";
-import {getRecipes, removeRecipes, sortRecipes} from "./resep";
+import {getRecipes, removeIngredient, removeRecipes, sortRecipes} from "./resep";
 import {getFilters} from "./filters";
 const recipes = getRecipes()
 
@@ -15,6 +15,7 @@ const generateRecipeDom = (recipe)=>{
     }else {
         titleEl.textContent = 'Resep tanpa judul'
     }
+
     recipeEl.appendChild(titleEl)
 
     recipeEl.setAttribute('href','/edit-resep.html#'+recipe.id)
@@ -63,6 +64,11 @@ const generateIngredientDom = (ingredients)=>{
 
     completedEl.checked = ingredients.completed
     ingredientEl.textContent = ingredients.ingredient
+
+    removeEl.addEventListener('click',(e)=>{
+        e.preventDefault()
+
+    })
 
     containerEl.appendChild(removeEl)
     containerEl.appendChild(completedEl)

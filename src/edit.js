@@ -3,7 +3,6 @@ import moment from "moment";
 import {updateRecipe} from "./resep";
 const recipeTitleEl = document.querySelector('#recipe-title')
 const recipeStepsEl = document.querySelector('#recipe-Steps')
-const ingredientsEl = document.querySelector('#ingredients')
 const addIngredientButtonEl = document.querySelector('#add-ingredient-button')
 const addIngredientEl = document.querySelector('#add-ingredient')
 const removeRecipeButtonEl = document.querySelector('#delete-recipe')
