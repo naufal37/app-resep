@@ -1,21 +1,10 @@
-import {createRecipes, loadRecipes,updateRecipe} from './resep'
+import {createRecipes, loadRecipes} from './resep'
 import {renderRecipes} from "./views";
 import {setFilters} from "./filters";
-import moment from "moment";
 
 const filterEl = document.querySelector('#filter-by')
 const createNewRecipeEl = document.querySelector('#create-new-recipe')
 const searchRecipeEl = document.querySelector('#search-recipe')
-
-// updateRecipe("f9636639-d91d-4b69-86ed-57937caaf61c",{
-//     title:'Jengkol Semur',
-//     recipeSteps:'Disemur',
-//     ingredients:{ingredient:'Air',completed:false}
-// })
-
-const co = [{a:'a'},{b:'b'},{c:'c'}]
-co.splice(1,1)
-console.log(co)
 
 renderRecipes()
 
