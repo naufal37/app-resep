@@ -1,5 +1,5 @@
 import moment from "moment";
-import {getRecipes, removeIngredient, removeRecipes, sortRecipes} from "./resep";
+import {getRecipes, removeIngredient, removeRecipes, sortRecipes,updateIngredient} from "./resep";
 import {getFilters} from "./filters";
 const recipes = getRecipes()
 
@@ -53,7 +53,7 @@ const renderRecipes = ()=>{
         recipesEl.appendChild(emptyMessage)
     }
 }
-const generateIngredientDom = (ingredients)=>{
+const generateIngredientDom = (ingredients,id)=>{
     const containerEl = document.createElement('div')
     const ingredientEl = document.createElement('a')
     const completedEl = document.createElement('input')
@@ -68,7 +68,11 @@ const generateIngredientDom = (ingredients)=>{
     removeEl.addEventListener('click',(e)=>{
         e.preventDefault()
         removeIngredient(ingredients)
+        renderIngredient(id)
+    })
 
+    completedEl.addEventListener('change',(e)=>{
+        updateIngredient(id,e.target.checked,ingredients)
     })
 
     containerEl.appendChild(removeEl)
@@ -83,7 +87,7 @@ const renderIngredient = (id)=>{
     let recipe = recipes.find((recipe)=> recipe.id === id)
     let ingredient = recipe.ingredients
     ingredient.forEach((ingredient)=>{
-        ingredientsEl.appendChild(generateIngredientDom(ingredient))
+        ingredientsEl.appendChild(generateIngredientDom(ingredient,id))
     })
 }
 

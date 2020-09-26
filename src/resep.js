@@ -90,7 +90,18 @@ const sortRecipes = (sortBy) => {
         })
     } else return recipes
 }
-
+const updateIngredient = (id,completed,ing)=>{
+    const recipe = recipes.find((recipe) => {
+        return recipe.id === id
+    })
+    if (!recipe) {
+        return
+    }
+    if (typeof completed==="boolean"){
+        ing.completed = completed
+    }
+    saveRecipes()
+}
 const updateRecipe = (id, updates) => {
     const recipe = recipes.find((recipe) => {
         return recipe.id === id
@@ -101,12 +112,10 @@ const updateRecipe = (id, updates) => {
     if (typeof updates.title === "string") {
         recipe.title = updates.title
         recipe.updatedAt = moment().valueOf()
-
     }
     if (typeof updates.ingredients === "object") {
         recipe.ingredients.push(updates.ingredients)
         recipe.updatedAt = moment().valueOf()
-
     }
     if (typeof updates.recipeSteps === 'string') {
         recipe.recipeSteps = updates.recipeSteps
@@ -116,4 +125,4 @@ const updateRecipe = (id, updates) => {
     return recipe
 }
 
-export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes, removeIngredient}
+export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes, removeIngredient,updateIngredient}

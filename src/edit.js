@@ -8,8 +8,9 @@ const addIngredientEl = document.querySelector('#add-ingredient')
 const removeRecipeButtonEl = document.querySelector('#delete-recipe')
 const timeStamp = moment().valueOf()
 const recipeID = location.hash.substring(1)
-initializeEditPage(recipeID)
 
+initializeEditPage(recipeID)
+renderIngredient(recipeID)
 recipeTitleEl.addEventListener('input',(e)=>{
     updateRecipe(recipeID,{
         title:e.target.value
