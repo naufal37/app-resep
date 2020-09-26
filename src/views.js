@@ -89,7 +89,7 @@ const generateIngredientDom = (ingredients, id) => {
 
     removeEl.addEventListener('click', (e) => {
         e.preventDefault()
-        removeIngredient(ingredients)
+        removeIngredient(id,ingredients)
         renderIngredient(id)
     })
 

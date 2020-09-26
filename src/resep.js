@@ -27,16 +27,6 @@ const getRecipes = () => recipes
 const createRecipes = () => {
     const newRecipes = new Recipes('', '', [])
     recipes.push(newRecipes)
-
-
-    // recipes.push({
-    //     id,
-    //     title: '',
-    //     recipeSteps: '',
-    //     ingredients: [],
-    //     createdAt: recipesTimeStamp,
-    //     updatedAt: recipesTimeStamp
-    // })
     saveRecipes()
     return newRecipes.id
 }
@@ -55,11 +45,10 @@ const removeRecipes = (id) => {
 }
 
 
-const removeIngredient = (ingredientsToRemove) => {
-    recipes.forEach((recipe) => {
-        const ingredientIndex = recipe.ingredients.findIndex((ing) => ing.ingredient === ingredientsToRemove.ingredient)
-        recipe.ingredients.splice(ingredientIndex, 1)
-    })
+const removeIngredient = (id, ingredientsToRemove) => {
+    let se = recipes.find((rec) => rec.id === id)
+    let su = se.ingredients.findIndex((re) => re.ingredient === ingredientsToRemove.ingredient)
+    se.ingredients.splice(su, 1)
     saveRecipes()
 }
 
@@ -90,14 +79,14 @@ const sortRecipes = (sortBy) => {
         })
     } else return recipes
 }
-const updateIngredient = (id,completed,ing)=>{
+const updateIngredient = (id, completed, ing) => {
     const recipe = recipes.find((recipe) => {
         return recipe.id === id
     })
     if (!recipe) {
         return
     }
-    if (typeof completed==="boolean"){
+    if (typeof completed === "boolean") {
         ing.completed = completed
     }
     saveRecipes()
@@ -125,4 +114,13 @@ const updateRecipe = (id, updates) => {
     return recipe
 }
 
-export {loadRecipes, getRecipes, createRecipes, removeRecipes, updateRecipe, sortRecipes, removeIngredient,updateIngredient}
+export {
+    loadRecipes,
+    getRecipes,
+    createRecipes,
+    removeRecipes,
+    updateRecipe,
+    sortRecipes,
+    removeIngredient,
+    updateIngredient
+}
