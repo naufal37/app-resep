@@ -34,6 +34,21 @@ addIngredientButtonEl.addEventListener('click',(e)=>{
     addIngredientEl.value=''
     renderIngredient(recipeID)
 })
+
+addIngredientEl.addEventListener('keydown',(e)=>{
+    if (e.code==='Enter'){
+        updateRecipe(recipeID,{
+            ingredients:{
+                ingredient:addIngredientEl.value,
+                completed:false
+            }
+        })
+        addIngredientEl.value=''
+        renderIngredient(recipeID)
+    }
+})
+
+
 saveRecipe.addEventListener('click',(e)=>{
     location.href = '/index.html'
 })
