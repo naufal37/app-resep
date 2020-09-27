@@ -8,7 +8,7 @@ const generateRecipeDom = (recipe) => {
     const recipeEl = document.createElement('a')
     const titleEl = document.createElement('p')
     const statusEl = document.createElement('p')
-    const removeEl = document.createElement('button')
+    // const removeEl = document.createElement('button')
 
     //isi title resep kemudian append ke recipeEl
     if (recipe.title.length > 0) {
@@ -16,9 +16,10 @@ const generateRecipeDom = (recipe) => {
     } else {
         titleEl.textContent = 'Resep tanpa judul'
     }
-
+    titleEl.classList.add('list-item__title')
     recipeEl.appendChild(titleEl)
 
+    recipeEl.classList.add('list-item')
     recipeEl.setAttribute('href', '/edit-resep.html#' + recipe.id)
 
 
@@ -41,16 +42,17 @@ const generateRecipeDom = (recipe) => {
         else return 'Tidak Ada Bahan Yang Terkumpul'
     }
     statusEl.textContent = statMessage()
+    statusEl.classList.add('list-item__subtitle')
 
     recipeEl.appendChild(statusEl)
 
-    removeEl.textContent = 'X'
-    removeEl.addEventListener('click', (e) => {
-        e.preventDefault()
-        removeRecipes(recipe.id)
-        renderRecipes()
-    })
-    recipeEl.appendChild(removeEl)
+    // removeEl.textContent = 'X'
+    // removeEl.addEventListener('click', (e) => {
+    //     e.preventDefault()
+    //     removeRecipes(recipe.id)
+    //     renderRecipes()
+    // })
+    // recipeEl.appendChild(removeEl)
 
     return recipeEl
 }
@@ -96,6 +98,9 @@ const generateIngredientDom = (ingredients, id) => {
     completedEl.addEventListener('change', (e) => {
         updateIngredient(id, e.target.checked, ingredients)
     })
+
+
+
 
     containerEl.appendChild(removeEl)
     containerEl.appendChild(completedEl)

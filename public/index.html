@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="images/favicon.png" rel="icon">
+    <link href="styles/styles.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Aplikasi Resep Makanan</title>
+    <title>Masak Masak Asik</title>
 </head>
 <body>
-<h1>Aplikasi Resep Makanan</h1>
-<input id="search-recipe" placeholder="Cari Resep Makanan Di Sini">
-<label>Urutkan Berdasarkan : </label>
-<select id="filter-by">
-    <option value="byCreated">Terbaru</option>
-    <option value="byEdited">Terakhir Diubah</option>
-    <option value="alphabetical">Alfabet</option>
-</select>
-<button id="create-new-recipe"> Buat Resep Baru</button>
-<div id="container">
-    <div id="recipes"></div>
+<header class="header">
+    <div class="container">
+        <h1 class="header__title"> Masak Masak Asik</h1>
+        <h2 class="header__subtitle"> Simpan Resep Masakan Anda!</h2>
+    </div>
+</header>
+
+<div class="actions">
+    <div class="actions__container">
+        <input class="input" id="search-recipe" placeholder="Cari Resep" type="text">
+        <span>Urutkan Berdasarkan</span>
+        <select id="filter-by" class="dropdown">
+            <option value="byCreated"> Terakhir Dibuat</option>
+            <option value="byEdited"> Terakhir Diedit</option>
+            <option value="alphabetical"> Abjad </option>
+        </select>
+    </div>
 </div>
-<script src="scripts/index-bundle.js"></script>
+<div class="container">
+    <div id="recipes"></div>
+    <button id="create-new-recipe" class="button"> Buat Resep</button>
+</div>
+
 </body>
+<script src="scripts/index-bundle.js"></script>
 </html>
