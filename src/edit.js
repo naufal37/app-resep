@@ -5,7 +5,7 @@ const recipeTitleEl = document.querySelector('#recipe-title')
 const recipeStepsEl = document.querySelector('#recipe-Steps')
 const addIngredientButtonEl = document.querySelector('#add-ingredient-button')
 const addIngredientEl = document.querySelector('#add-ingredient')
-const removeRecipeButtonEl = document.querySelector('#delete-recipe')
+const saveRecipe = document.querySelector('#save-recipe')
 const timeStamp = moment().valueOf()
 const recipeID = location.hash.substring(1)
 
@@ -33,4 +33,7 @@ addIngredientButtonEl.addEventListener('click',(e)=>{
     })
     addIngredientEl.value=''
     renderIngredient(recipeID)
+})
+saveRecipe.addEventListener('click',(e)=>{
+    location.href = '/index.html'
 })
