@@ -83,7 +83,8 @@ const generateIngredientDom = (ingredients, id) => {
     const completedEl = document.createElement('input')
     const removeEl = document.createElement('button')
 
-    removeEl.textContent = 'x'
+    removeEl.textContent = 'X'
+    removeEl.classList.add('button-danger')
     completedEl.setAttribute('type', 'checkbox')
 
     completedEl.checked = ingredients.completed
@@ -98,8 +99,6 @@ const generateIngredientDom = (ingredients, id) => {
     completedEl.addEventListener('change', (e) => {
         updateIngredient(id, e.target.checked, ingredients)
     })
-
-
 
 
     containerEl.appendChild(removeEl)

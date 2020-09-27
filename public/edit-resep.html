@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="styles/styles.css" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Edit Resep</title>
+    <title>Masak Masak Asik</title>
 </head>
 <body>
-Edit Resep
+<div class="header">
+    <div class="container">
+        <h1 class="header__title"> Masak Masak Asik</h1>
+        <h2 class="header__subtitle"> Simpan Resep Masakan Anda!</h2>
+    </div>
+</div>
+<div class="actions">
+    <div class="actions__container actions__container--spaced">
+        <span id="last-updated"></span>
+    </div>
+</div>
+<div class="container">
+    <input id="recipe-title" class="title-input" placeholder="Judul Resep">
+    <textarea id="recipe-Steps" class="body-input" placeholder="Tahapan Memasak"></textarea>
 
-<label for="recipe-title">Judul Resep</label><input id="recipe-title" placeholder="Judul Resep">
-<label>
-    Tahapan <textarea id="recipe-Steps"></textarea>
-</label>
-<div id="ingredients"></div>
-<input id="add-ingredient" placeholder="Masukkan Bahan Bahan">
-<button id="add-ingredient-button">Tambahkan bahan</button>
 
-<button id="save-recipe">Simpan resep</button>
-<button id="remove-recipe"> Hapus Resep</button>
+    <div id="ingredients"></div>
+    <input class="input" id="add-ingredient" placeholder="Masukkan Bahan Bahan">
+    <button class="button" id="add-ingredient-button">Tambahkan bahan</button>
 
-</body>
+    <button id="save-recipe" class="button button--third"> Simpan Resep </button>
+    <button id="remove-recipe" class="button button--secondary"> Hapus Resep </button>
+</div>
 <script src="scripts/edit-bundle.js"></script>
+</body>
 </html>
