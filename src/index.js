@@ -9,7 +9,7 @@ const searchRecipeEl = document.querySelector('#search-recipe')
 renderRecipes()
 
 createNewRecipeEl.addEventListener('click', (e) => {
-    const id = createRecipes()
+    createRecipes()
     renderRecipes()
 })
 filterEl.addEventListener('change', (e) => {

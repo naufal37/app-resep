@@ -46,9 +46,9 @@ const removeRecipes = (id) => {
 
 
 const removeIngredient = (id, ingredientsToRemove) => {
-    let se = recipes.find((rec) => rec.id === id)
-    let su = se.ingredients.findIndex((re) => re.ingredient === ingredientsToRemove.ingredient)
-    se.ingredients.splice(su, 1)
+    let recipeToRemove = recipes.find((rec) => rec.id === id)
+    let ingredientIndex = recipeToRemove.ingredients.findIndex((re) => re.ingredient === ingredientsToRemove.ingredient)
+    recipeToRemove.ingredients.splice(ingredientIndex, 1)
     saveRecipes()
 }
 
@@ -79,7 +79,7 @@ const sortRecipes = (sortBy) => {
         })
     } else return recipes
 }
-const updateIngredient = (id, completed, ing) => {
+const updateIngredient = (id, completed, ingredient) => {
     const recipe = recipes.find((recipe) => {
         return recipe.id === id
     })
@@ -87,7 +87,7 @@ const updateIngredient = (id, completed, ing) => {
         return
     }
     if (typeof completed === "boolean") {
-        ing.completed = completed
+        ingredient.completed = completed
     }
     saveRecipes()
 }

@@ -46,14 +46,6 @@ const generateRecipeDom = (recipe) => {
 
     recipeEl.appendChild(statusEl)
 
-    // removeEl.textContent = 'X'
-    // removeEl.addEventListener('click', (e) => {
-    //     e.preventDefault()
-    //     removeRecipes(recipe.id)
-    //     renderRecipes()
-    // })
-    // recipeEl.appendChild(removeEl)
-
     return recipeEl
 }
 

@@ -1,6 +1,5 @@
-import {initializeEditPage, renderIngredient, renderRecipes} from "./views";
-import moment from "moment";
-import {updateRecipe,removeRecipes} from "./resep";
+import {initializeEditPage, renderIngredient} from "./views";
+import {removeRecipes, updateRecipe} from "./resep";
 
 const recipeTitleEl = document.querySelector('#recipe-title')
 const recipeStepsEl = document.querySelector('#recipe-Steps')
@@ -8,8 +7,6 @@ const addIngredientButtonEl = document.querySelector('#add-ingredient-button')
 const addIngredientEl = document.querySelector('#add-ingredient')
 const saveRecipe = document.querySelector('#save-recipe')
 const removeRecipe = document.querySelector('#remove-recipe')
-
-const timeStamp = moment().valueOf()
 const recipeID = location.hash.substring(1)
 
 initializeEditPage(recipeID)
